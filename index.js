@@ -35,10 +35,12 @@ const start = () => {
         return bot.sendMessage(chatId, "Не понял тебя")
     })
     bot.on('callback_query', async msg => {
-        console.log(msg)
-        const data = msg.date
+
+        const data = msg.data
         const chatId = msg.message.chat.id
+        console.log(msg)
         if (data === '/again') {
+            console.log(data)
             return startGame(chatId)
         }
         if (data === chats[chatId]) {
